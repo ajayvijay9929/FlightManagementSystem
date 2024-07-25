@@ -14,7 +14,8 @@ import io.github.cdimascio.dotenv.Dotenv;
 @SpringBootApplication
 public class FlightManagementSystemApplication {
 
-	Dotenv dotenv = Dotenv.load();
+//	this is use for pro  and must make .env file 
+//	Dotenv dotenv = Dotenv.load();
 
 	/**
 	 * Main method to start the Flight Management System application.
