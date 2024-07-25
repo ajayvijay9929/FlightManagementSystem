@@ -1,0 +1,14 @@
+package com.aeroBlasters.config;
+
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class EncoderConfig {
+
+//
+//    @Bean
+//    PasswordEncoder passwordEncoder() {
+//		return new BCryptPasswordEncoder();
+//	}
+}

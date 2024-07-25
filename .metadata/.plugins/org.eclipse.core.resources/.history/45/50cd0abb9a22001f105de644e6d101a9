@@ -1,0 +1,30 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+<link href="css/style.css" rel="stylesheet" />
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<%@include file="allCss.jsp"%>
+  <title>Login</title>
+ 
+</head>
+<body>
+
+	   <div class="login-container">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div class="links">
+            <a href="#">Forgot Username / Password?</a><br>
+            <a href="signup">Don't have an account? Sign up</a>
+        </div>
+    </div>
+
+</body>
+</html>

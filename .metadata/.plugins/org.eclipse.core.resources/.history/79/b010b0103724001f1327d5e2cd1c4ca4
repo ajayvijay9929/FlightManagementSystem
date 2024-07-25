@@ -1,0 +1,88 @@
+package com.aeroBlasters.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.aeroBlasters.bean.FlightUser;
+import com.aeroBlasters.dao.FlightUserRepository;
+import com.aeroBlasters.services.FlightUserService;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+
+
+@RestController
+public class LoginController {
+
+	
+	@Autowired
+	private FlightUserService service;
+	
+	@GetMapping("/")
+	public ModelAndView indexPage() {
+		ModelAndView mv = new ModelAndView("index");
+		return mv;
+	}
+	
+	@GetMapping("/login")
+	public ModelAndView loginPage() {
+		ModelAndView mv = new ModelAndView("login");
+		return mv;
+	}
+	
+	@GetMapping("/signup")
+	public ModelAndView signupPage() {
+		ModelAndView mv = new ModelAndView("signup");
+		return mv;
+	}
+	
+	@GetMapping("/loginerror")
+	public ModelAndView showLoginErrorPage() {
+		return new ModelAndView("loginErrorPage");
+	}
+	
+	
+//	post methods 
+	
+	@PostMapping("/submitlogin")
+	public ModelAndView submitLogin() {
+	
+//		// this is not working properly so you can leave this part
+//		flightUser user = new flightUser(username,password,type);
+//		flightUser dbuser = systemUserRepository.findByuserName(username);
+//		
+//		if(dbuser != null && dbuser.getPassword().equals(user.getPassword())) {
+//			ModelAndView mv = new ModelAndView("success");
+//			return mv;
+//			
+//		}
+//		else {
+//			String msg = "invalid user!! 🤨 ";
+//			mv.addObject("errorMessage", msg);
+//			
+//			
+//		}
+		ModelAndView mv = new ModelAndView("success");
+		return mv;
+	}
+	
+	@PostMapping("/submitsignup")
+	public String submitSignup(@ModelAttribute("userRecord") FlightUser user) {
+		if(service.existsByuserName(user.getUserName())) {
+			System.out.println("this is an error ");
+			ModelAndView mv = new ModelAndView("login");
+			mv.addObject("errorMessage", "👤 already register🕺 please 🙏 login ");
+			return "redirect:/login";
+		}
+		else {
+			service.save(user);
+			ModelAndView mv = new ModelAndView("success");
+			return "redirect:/login";	
+		}
+	}
+	
+	
+}

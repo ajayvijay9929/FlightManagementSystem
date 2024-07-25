@@ -1,0 +1,8 @@
+
+body {
+	background-color: lightblue;
+	}
+
+.form{
+	background-color: #ffffff;
+}

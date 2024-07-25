@@ -1,0 +1,5 @@
+package com.aeroBlasters.controllers.bean;
+
+public class SystemUser {
+
+}

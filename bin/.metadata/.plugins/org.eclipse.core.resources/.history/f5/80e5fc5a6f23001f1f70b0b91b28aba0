@@ -1,0 +1,73 @@
+package com.aeroBlasters.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.aeroBlasters.bean.flightUser;
+import com.aeroBlasters.dao.SystemUserRepository;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+
+
+@RestController
+public class LoginController {
+
+	@Autowired
+	SystemUserRepository systemUserRepository;
+	
+	@GetMapping("/")
+	public ModelAndView indexPage() {
+		ModelAndView mv = new ModelAndView("index");
+		return mv;
+	}
+	
+	@GetMapping("/login")
+	public ModelAndView loginPage() {
+		ModelAndView mv = new ModelAndView("login");
+		return mv;
+	}
+	
+	@GetMapping("/signup")
+	public ModelAndView signupPage() {
+		ModelAndView mv = new ModelAndView("signup");
+		return mv;
+	}
+	
+	
+//	post methods 
+	
+	@PostMapping("/submitlogin")
+	public ModelAndView submitLogin() {
+	
+//		// this is not working properly so you can leave this part
+//		flightUser user = new flightUser(username,password,type);
+//		flightUser dbuser = systemUserRepository.findByuserName(username);
+//		
+//		if(dbuser != null && dbuser.getPassword().equals(user.getPassword())) {
+//			ModelAndView mv = new ModelAndView("success");
+//			return mv;
+//			
+//		}
+//		else {
+//			String msg = "invalid user!! 🤨 ";
+//			mv.addObject("errorMessage", msg);
+//			
+//			
+//		}
+		ModelAndView mv = new ModelAndView("success");
+		return mv;
+	}
+	
+	@PostMapping("/submitsignup")
+	public ModelAndView submitSignup(@ModelAttribute("userRecord") flightUser user) {
+		systemUserRepository.save(user);
+		ModelAndView mv = new ModelAndView("success");
+		return mv;
+	}
+	
+	
+}

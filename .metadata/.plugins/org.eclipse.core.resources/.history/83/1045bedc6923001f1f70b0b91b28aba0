@@ -1,0 +1,10 @@
+package com.aeroBlasters.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.aeroBlasters.bean.SystemUser;
+
+public interface SystemUserRepository extends JpaRepository<SystemUser,String> {
+
+	SystemUser findByuserName(String username);
+}

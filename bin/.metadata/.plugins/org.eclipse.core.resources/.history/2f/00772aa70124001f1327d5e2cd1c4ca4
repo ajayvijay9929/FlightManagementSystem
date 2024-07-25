@@ -1,0 +1,68 @@
+package com.aeroBlasters.bean;
+
+
+// which user we need to import
+
+import org.springframework.security.core.userdetails.User;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
+public class FlightUser extends User {
+	
+	@Id
+	private String userName;
+	private String password;
+	private String type;
+	
+	/*
+	 * public flightUser() { super("abc","pqr",new ArrayList<>()); }
+	 * 
+	 * public flightUser(String username, String password, java.util.Collection<?
+	 * extends GrantedAuthority> authorities,String username2, String
+	 * password2,String type2 ) { super(username,password,authorities);
+	 * this.username = username2; this.password = password2; this.type = type2;
+	 * 
+	 * }
+	 */
+	
+	public FlightUser() {
+		super();
+	}
+
+	public FlightUser(String userName, String password, String type) {
+		super();
+		this.userName = userName;
+		this.password = password;
+		this.type = type;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+	@Override
+	public String toString() {
+		return "flightUser [username=" + userName + ", password=" + password + ", type=" + type + "]";
+	}	
+}

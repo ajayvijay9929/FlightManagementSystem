@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ <%@include file="allCss.jsp" %>
+</head>
+<body>
+
+	   <div class="login-container">
+        <h2>Signup</h2>
+        <form method="post" action="/submitsignup" >
+            <input type="email" name="username" placeholder="Username/Email" required>
+            <input type="password" name="password" id="password" placeholder="Password" required>
+            <input type="password" name="cpassword" id="cpassword" placeholder="conform Password" required>
+            <button type="submit">Signup</button>
+        </form>
+        <div class="links">
+            <a href="#">Forgot Username / Password?</a><br>
+            <a href="signup">Don't have an account? Sign up</a>
+        </div>
+    </div>
+
+	
+</body>
+</html>

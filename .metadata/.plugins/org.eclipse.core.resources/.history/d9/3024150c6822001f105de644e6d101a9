@@ -1,0 +1,7 @@
+package com.aeroBlasters.controller.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public class SystemUserRepository implements JpaRepository<T, ID> {
+
+}

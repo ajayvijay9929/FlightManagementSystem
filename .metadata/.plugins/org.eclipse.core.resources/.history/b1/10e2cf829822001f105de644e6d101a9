@@ -1,0 +1,55 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+<link href="css/style.css" rel="stylesheet" />
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<%@include file="allCss.jsp"%>
+  <title>Login</title>
+ 
+</head>
+<body>
+
+	<div align="center">
+		<form method="post" action="/calculate">
+			<h2>
+				UserName<input type="text" name="username" /> <br> <br>
+				Password<input type="text" name="password" /> <br> <br>
+				<br> <br>
+				<button type="submit">Submit</button>
+				<button type="button"><a href="/signup"></a>Signup </button>
+			</h2>
+		</form>
+	</div>
+	
+	   <div class="login-container">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <div>
+                <input type="checkbox" id="showPassword" onclick="togglePassword()"> Show Password
+            </div>
+            <button type="submit">Sign In</button>
+        </form>
+        <div class="links">
+            <a href="#">Forgot Username / Password?</a><br>
+            <a href="#">Don't have an account? Sign up</a>
+        </div>
+    </div>
+       <script>
+        function togglePassword() {
+            var passwordField = document.querySelector('input[name="password"]');
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+    </script>
+
+</body>
+</html>

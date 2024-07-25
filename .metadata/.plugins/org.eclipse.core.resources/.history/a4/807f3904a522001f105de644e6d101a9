@@ -1,0 +1,61 @@
+package com.aeroBlasters.controller;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.aeroBlasters.controller.dao.SystemUserRepository;
+import com.aeroBlasters.controllers.bean.SystemUser;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+
+
+
+@RestController
+public class LoginController {
+
+	@Autowired
+	SystemUserRepository systemUserRepository;
+	@GetMapping("/")
+	public ModelAndView indexPage() {
+		ModelAndView mv = new ModelAndView("index");
+		return mv;
+	}
+	
+	@GetMapping("/login")
+	public ModelAndView loginPage() {
+		ModelAndView mv = new ModelAndView("login");
+		return mv;
+	}
+	
+	@GetMapping("/signup")
+	public ModelAndView signupPage() {
+		ModelAndView mv = new ModelAndView("signup");
+		return mv;
+	}
+	
+	
+//	post methods 
+	
+	@PostMapping("/submitlogin")
+	public ModelAndView submitLogin(@RequestParam("username") String username ,@RequestParam("password") String password) {
+		
+		ModelAndView mv = new ModelAndView("success");
+		
+		return mv;
+	}
+	
+	@PostMapping("/submitsignup")
+	public ModelAndView submitSignup(@RequestParam("username") String username ,@RequestParam("password") String password) {
+		SystemUser user = new SystemUser(username,password,"user");
+		systemUserRepository.save(user);
+		ModelAndView mv = new ModelAndView("success");
+		return mv;
+	}
+	
+	
+}

@@ -1,0 +1,14 @@
+package com.aeroBlasters.dao;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.aeroBlasters.bean.FlightUser;
+import com.aeroBlasters.bean.flightUser;
+
+public interface FlightUserRepository extends JpaRepository<FlightUser,String> {
+
+	Optional<FlightUser> findByuserName(String userName); 
+	 boolean existsByuserName(String userName);
+}

@@ -1,0 +1,52 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ <%@include file="allCss.jsp" %>
+</head>
+<body>
+
+	   <div class="login-container">
+	   <h1>Flight Management System</h1>
+        <h2>Signup</h2>
+        <form method="post" action="/submitsignup" >
+            <input type="email" name="username" placeholder="Username/Email" required>
+        <input list="types" id="type" name="type" placeholder="Select type" required>
+          <select id="type" name="type" required>
+            <option value="Customer">Customer</option>
+            <option value="Admin">Admin</option>
+        </select>
+            <input type="password" name="password" id="password" placeholder="Password" required>
+            <input type="password" name="cpassword" id="cpassword" placeholder="conform Password" required>
+                
+        
+       
+        
+            <button onclick = "validatePasswords()"type="submit">Signup</button>
+        </form>
+        <div class="links">
+            <a href="login">If you have an account! Login</a>
+        </div>
+    </div>
+    
+    <script>
+    function validatePasswords() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("cpassword").value;
+        console.log(password);
+ 	   console.log(cpassword);
+           if (password !== confirmPassword) {
+        	event.preventDefault();
+            alert("Passwords do not match!");
+            return false;
+        }
+         return true;
+    }
+    </script>
+
+	
+</body>
+</html>

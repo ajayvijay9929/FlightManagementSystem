@@ -1,0 +1,9 @@
+package com.aeroBlasters.controller.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.aeroBlasters.controllers.bean.SystemUser;
+
+public interface SystemUserRepository extends JpaRepository<SystemUser,String> {
+
+}

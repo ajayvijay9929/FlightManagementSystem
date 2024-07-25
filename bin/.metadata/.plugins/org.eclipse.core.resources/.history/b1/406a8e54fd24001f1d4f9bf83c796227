@@ -1,0 +1,25 @@
+package com.aeroBlasters.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+
+
+@RestController
+public class GetController {
+
+	@GetMapping("/login")
+	@RequestBody
+	public String loginPage() {
+//		  return new ModelAndView("login");
+		  return "login";
+	}
+	
+	@GetMapping("/signup")
+	public ModelAndView signupPage() {
+		ModelAndView mv = new ModelAndView("signup");
+		return mv;
+	}
+	
+}
